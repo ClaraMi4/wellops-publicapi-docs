@@ -3,7 +3,7 @@ Welcome to the Well Ops public API documentation.
 
 <!--TODO: What can it be used for?-->
 
-The base of the URL for this API is **TODO: ADD URL**. The URI for any HTTP request sent 
+The base of the URL for this API is https://wellopsdev.azurewebsites.net. The URI for any HTTP request sent 
 to the API should be this address followed by the path for a specific endpoint.
 
 Use the links below to get started using the API.
@@ -62,7 +62,7 @@ use the [API Overview](#overview) to link you to the correct section. Once there
 1. Request Method and Path
     * Always required.
     * May include route or query paramters, explained below.
-    * The root URI for the API is **TODO: Root URI**
+    * The root URI for the API is wellopsdev.azurewebsites.net
         * The URI you should use in your request is the root URI followed by the path specified for the endpoint
         you wish to hit.
 2. Route and Query Parameters
@@ -94,7 +94,7 @@ Using the [Get Wells](#get-wells) endpoint documentation, we can quickly determi
 1. Request Method and Path
     * GET
     * /Company/\{companyID}/Well?fieldID=\{fieldID}&date=\{date}
-    * URI: **TODO: BASE URI/Company/\{companyID}/Well?fieldID=\{fieldID}&date=\{date}**
+    * URI: **wellopsdev.azurewebsites.net/Company/\{companyID}/Well?fieldID=\{fieldID}&date=\{date}**
 2. Route and Query Parameters
     * companyID - the ID of the company whose wells you are trying to access
     * fieldID - the ID of the field whose wells you are trying to access, optional
@@ -108,7 +108,7 @@ Using the [Get Wells](#get-wells) endpoint documentation, we can quickly determi
 
 Using these values, we construct our HTTP request:
 
-> GET&emsp;&emsp;TODO: BASE URI/Company/\{companyID}/Well    
+> GET&emsp;&emsp;wellopsdev.azurewebsites.net/Company/\{companyID}/Well    
 > X-Api-Key: "isp_TUbabklXnNS8-h7bIs12SxnYd5K9mnLZae" <!--TODO: Other sample key-->
 
 
@@ -215,11 +215,11 @@ your request, include a **version** parameter in the query string.
 For example, take the HTTP call shown in the quick start [Example](#example) portion of this guide. This is a call to 
 the [Get Wells](#get-wells) endpoint made with the following URI:
 
-&emsp;&emsp; **TODO: BASE URI/Company/\{companyID}/Well?fieldID=\{fieldID}&date=\{date}**
+&emsp;&emsp; **wellopsdev.azurewebsites.net/Company/\{companyID}/Well?fieldID=\{fieldID}&date=\{date}**
 
 If I wanted to make the same call but to a specific version of the API, I would simply add a version parameter:
 
-&emsp;&emsp; **TODO: BASE URI/Company/\{companyID}/Well?fieldID=\{fieldID}&date=\{date}&version=\{versionNumber}**
+&emsp;&emsp; **wellopsdev.azurewebsites.net/Company/\{companyID}/Well?fieldID=\{fieldID}&date=\{date}&version=\{versionNumber}**
 
 ### X-Api-Version Header
 Another way to specify the version is to provide the x-api-version header on your request.
@@ -456,7 +456,7 @@ Returns all companies the user has access to.
 
 **Method and Path** - GET /Company
 
-**URL** - **TODO: BASE URI/Company**
+**URL** - **wellopsdev.azurewebsites.net/Company**
 
 **Route Parameters** - None
 
@@ -511,7 +511,7 @@ Returns all fields from the specified company that the user has access to.
 
 **Method and Path** - GET /Company/{companyID}/Field
 
-**URL** - **TODO: BASE URI/Company/{companyID}/Field**
+**URL** - **wellopsdev.azurewebsites.net/Company/{companyID}/Field**
 
 **Route Parameters** - 
 * *companyID* - ID of the company you want to retrieve wells for
@@ -568,7 +568,7 @@ the current date.
 
 **Method and Path** - GET /Company/{companyID}/Well?fieldID={fieldID}&date={date}
 
-**URL** - **TODO: BASE URI/Company/{companyID}/Well?fieldID={fieldID}&date={date}**
+**URL** - **wellopsdev.azurewebsites.net/Company/{companyID}/Well?fieldID={fieldID}&date={date}**
 
 **Route Parameters** - 
 * *companyID* - ID of the company you want to retrieve wells for
@@ -617,7 +617,7 @@ Use optional parameters to filter by field, well, or date.
 **Method and Path** - GET /Company/{companyID}/WellDailyProduction?fieldID={fieldID}&wellID={wellID}&
 startDate={startDate}&endDate={endDate}
 
-**URL** - **TODO: BASE URI/Company/{companyID}/WellDailyProduction?fieldID={fieldID}&wellID={wellID}&
+**URL** - **wellopsdev.azurewebsites.net/Company/{companyID}/WellDailyProduction?fieldID={fieldID}&wellID={wellID}&
 startDate={startDate}&endDate={endDate}**
 
 **Route Parameters** - 
@@ -670,7 +670,7 @@ Returns all valid well status values.
 
 **Method and Path** - GET /Company/{companyID}/WellStatus
 
-**URL** - **TODO: BASE URI/Company/{companyID}/WellStatus**
+**URL** - **wellopsdev.azurewebsites.net/Company/{companyID}/WellStatus**
 
 **Route Parameters** - 
 * *companyID* - ID of the company you want to retrieve possible well statuses for
