@@ -64,7 +64,7 @@ use the [API Overview](#overview) to link you to the correct section. Once there
 1. Request Method and Path
     * Always required.
     * May include route or query paramters, explained below.
-    * The root URI for the API is wellopsdev.azurewebsites.net
+    * The root URI for the API is **wellopsdev.azurewebsites.net**
         * The URI you should use in your request is the root URI followed by the path specified for the endpoint
         you wish to hit.
 2. Route and Query Parameters
@@ -88,75 +88,51 @@ of this documentation covering your endpoint for information about server respon
 ---
 
 ### Example
-Let's consider an example. For this quick start example, we will retrieve a list of wells we have access
-to. We do this by using the [Get Wells](#get-wells) endpoint. 
+Let's consider an example. For this quick start example, we will retrieve a list of companies we have access
+to through the public API. We do this by using the [Get Companies](#get-companies) endpoint. 
 
-Using the [Get Wells](#get-wells) endpoint documentation, we can quickly determine our needed values.
+Using the [Get Companies](#get-companies) endpoint documentation, we can quickly determine our needed values.
 
 1. Request Method and Path
     * GET
-    * /Company/\{companyID}/Well?fieldID=\{fieldID}&date=\{date}
-    * URI: **wellopsdev.azurewebsites.net/Company/\{companyID}/Well?fieldID=\{fieldID}&date=\{date}**
+    * /Company
+    * URI: **wellopsdev.azurewebsites.net/Company**
 2. Route and Query Parameters
-    * companyID - the ID of the company whose wells you are trying to access
-    * fieldID - the ID of the field whose wells you are trying to access, optional
-    * date - the date you wish to retrieve data for, optional
+    * No parameters
 3. Body
     * No body
 4. Headers
     * X-Api-Key
-        * We'll use the following sample key: isp_TUbabklXnNS8-h7bIs12SxnYd5K9mnLZae <!--TODO: Other sample key-->
+        * We'll use the following sample key: Mi4-TN7puOjkqVLcUxn4k98VPEoC62kXKo4Bj7IILL
     * No other headers
 
 Using these values, we construct our HTTP request:
 
-> GET&emsp;&emsp;wellopsdev.azurewebsites.net/Company/\{companyID}/Well    
-> X-Api-Key: "isp_TUbabklXnNS8-h7bIs12SxnYd5K9mnLZae" <!--TODO: Other sample key-->
+> GET&emsp;&emsp;wellopsdev.azurewebsites.net/Company  
+> X-Api-Key: "Mi4-TN7puOjkqVLcUxn4k98VPEoC62kXKo4Bj7IILL"
 
 
-The response from this request is a status code of 200 and a JSON list of wells we have access to, as shown
+The response from this request is a status code of 200 and a JSON list of companies we have access to, as shown
 below:   
 <!--TODO: Update returned values-->
 
 > 200&emsp;&emsp; OK                                     
-[                                                        
- &emsp;{                                                 
- &emsp;&emsp;"wellID": 46,                               
- &emsp;&emsp;"wellName": "Well 3 #46",                   
- &emsp;&emsp;"fieldID": 1,                               
- &emsp;&emsp;"fieldName": "TX 3, 1",                     
- &emsp;&emsp;"wellStatus": 1,                            
- &emsp;&emsp;"apiNumber": "42-355-06002",                
- &emsp;&emsp;"latitude": null,                           
- &emsp;&emsp;"longitude": null,                          
- &emsp;&emsp;"leaseNumber": "13485",                     
- &emsp;&emsp;"countyOrParish": "Nueces",                 
- &emsp;&emsp;"state": "TX",                              
- &emsp;&emsp;"district": "04",                           
- &emsp;&emsp;"effectiveFromDate": null,                  
- &emsp;&emsp;"effectiveToDate": null                     
- &emsp;},                                                
- &emsp;{                                                 
- &emsp;&emsp;"wellID": 46,                               
- &emsp;&emsp;"wellName": "Well 3 #46",                   
- &emsp;&emsp;"fieldID": 1,                               
- &emsp;&emsp;"fieldName": "TX 3, 1",                     
- &emsp;&emsp;"wellStatus": 1,                            
- &emsp;&emsp;"apiNumber": "42-355-06002",                
- &emsp;&emsp;"latitude": null,                           
- &emsp;&emsp;"longitude": null,                          
- &emsp;&emsp;"leaseNumber": "13485",                     
- &emsp;&emsp;"countyOrParish": "Nueces",                 
- &emsp;&emsp;"state": "TX",                              
- &emsp;&emsp;"district": "04",                           
- &emsp;&emsp;"effectiveFromDate": null,                  
- &emsp;&emsp;"effectiveToDate": null                     
- &emsp;}                                                 
+[   
+            &emsp;{   
+            &emsp;&emsp;"companyID": 123,   
+            &emsp;&emsp;"companyName": "Example Drilling Co.",   
+            &emsp;&emsp;"role": "ApiReadUsers"      
+            &emsp;},    
+            &emsp;{   
+            &emsp;&emsp;"companyID": 321,   
+            &emsp;&emsp;"companyName": "Notreal Drilling",   
+            &emsp;&emsp;"role": "ApiFullAccessUsers"      
+            &emsp;}                                                 
  ]
 
 Where to go from here:
 
-* For more information about the endpoint used in this example, read [Get Wells](#get-wells).
+* For more information about the endpoint used in this example, read [Get Companies](#get-companies).
 
 * For a list of all endpoints, visit the [Overview](#overview) portion of this documentation.
 
