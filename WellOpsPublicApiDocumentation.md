@@ -41,7 +41,7 @@ documentation.
 If you have not used the Well Ops public API before, you may need to generate an API key. If you have, you
 will need to retrieve it. 
 
-For now, please contact Mi4 Support at support@mi4.com to recieve an API key.
+For now, please contact Mi4 Support at support@mi4.com to receive an API key.
 
 <!--TODO: describe getting api key, log in, navigate to key, etc.-->
 
@@ -223,8 +223,10 @@ In the sections below, learn more about API key generation and use.
 ---
 
 ### API Key Generation
-Once you have confirmed you are logged in to the Well Ops portal TODO: Portal?, do the following to generate
-or retrieve an API key. <!--TODO: edit navigation/generation-->
+For now, please contact Mi4 Support at support@mi4.com to receive an API key.
+
+<!--Once you have confirmed you are logged in to the Well Ops portal TODO: Portal?, do the following to generate
+or retrieve an API key. TODO: edit navigation/generation
 
 1. From the Well Ops portal, navigate to the API Keys page.
     * Click on the admin link in the menu on the left hand side of the screen
@@ -236,7 +238,7 @@ or retrieve an API key. <!--TODO: edit navigation/generation-->
 3. Copy the API key.
     * Once your API key has been generated, you can copy it from the API Keys page
 
-The API key you have generated and copied can now be used to access the public API. 
+The API key you have generated and copied can now be used to access the public API. -->
 
 **Note:** This API key will give any
 request made with it the same permissions as your account. Be sure to treat this key with the 
@@ -255,9 +257,9 @@ and providing the API key as either the username or password. In this section, w
 The easiest way to use the API key is by including a X-Api-Key header on any HTTP requests to the API. For the 
 value of the header, provide your API key. 
 
-For example, if our API key is **isp_TUbabklXnNS8-h7bIs12SxnYd5K9mnLZae** TODO: update example key, our HTTP request should have a X-Api-Key
+For example, if our API key is **Mi4-TN7puOjkqVLcUxn4k98VPEoC62kXKo4Bj7IILL**, our HTTP request should have a X-Api-Key
 header value as follows:   
-&emsp;&emsp;**X-Api-Key: 'isp_TUbabklXnNS8-h7bIs12SxnYd5K9mnLZae'**
+&emsp;&emsp;**X-Api-Key: 'Mi4-TN7puOjkqVLcUxn4k98VPEoC62kXKo4Bj7IILL'**
 
 ---
 
@@ -280,17 +282,17 @@ request.
 2. Finally, The whole string can be submitted as the value for the Authorization header   
 &emsp;&emsp;**Authorization: 'Basic \<credentials token\>'**
 
-For example, suppose our API key is **isp_TUbabklXnNS8-h7bIs12SxnYd5K9mnLZae**. TODO: Update example key To use it in the Authorization header
+For example, suppose our API key is **Mi4-TN7puOjkqVLcUxn4k98VPEoC62kXKo4Bj7IILL**. To use it in the Authorization header
 we would follow the steps:
 1. Create credentials token   
     1. Construct the string    
-&emsp;&emsp;**'isp_TUbabklXnNS8-h7bIs12SxnYd5K9mnLZae:'**
+&emsp;&emsp;**'Mi4-TN7puOjkqVLcUxn4k98VPEoC62kXKo4Bj7IILL:'**
     2. Encode with Base64   
-&emsp;&emsp;**'aXNwX1RVYmFia2xYbk5TOC1oN2JJczEyU3huWWQ1SzltbkxaYWU6'**
+&emsp;&emsp;**'TWk0LVRON3B1T2prcVZMY1V4bjRrOThWUEVvQzYya1hLbzRCajdJSUxMOg=='**
 2. Prepend the Basic keyword   
-&emsp;&emsp;**'Basic aXNwX1RVYmFia2xYbk5TOC1oN2JJczEyU3huWWQ1SzltbkxaYWU6'**
+&emsp;&emsp;**'Basic TWk0LVRON3B1T2prcVZMY1V4bjRrOThWUEVvQzYya1hLbzRCajdJSUxMOg=='**
 3. Use as the value for the Authorization header   
-&emsp;&emsp;**Authorization: 'Basic aXNwX1RVYmFia2xYbk5TOC1oN2JJczEyU3huWWQ1SzltbkxaYWU6'**
+&emsp;&emsp;**Authorization: 'Basic TWk0LVRON3B1T2prcVZMY1V4bjRrOThWUEVvQzYya1hLbzRCajdJSUxMOg=='**
 
 ---
 
