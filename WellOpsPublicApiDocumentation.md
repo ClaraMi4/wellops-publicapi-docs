@@ -17,7 +17,7 @@ Use the links below to get started using the API.
   
 * For information on how to interpret JSON response bodies, read [JSON Data Object Structure](#json-data-object-structure).
 
-Last updated: 11/03/2023
+Last updated: 04/16/2024
 
 ## Table of Contents
 * [Introduction](#well-ops-public-api-documentation)
@@ -25,6 +25,7 @@ Last updated: 11/03/2023
 * [Overview](#overview)
 * [Versioning](#versioning)
 * [Authentication](#authentication)
+* [Pagination](#pagination)
 * [JSON Data Object Structure](#json-data-object-structure)
 * [Lookup Values](#lookup-values)
 * [Endpoints](#endpoints)
@@ -315,6 +316,77 @@ Where to go from here:
 * [Return to Table of Contents](#table-of-contents)
 ---
 
+## Pagination 
+In the API, data is returned to the user using pagination. For any endpoint that returns a body, that body will consist of a JSON object with a data section and a metadata section. The data section contains the data object(s) returned by the endpoint as described in the documentation for that endpoint. The metadata section contains information about the pagination of the returned data.
+
+### Pagination Metadata Object
+The metadata object returned by the API contains the following:
+* totalRecords - the total number of records or objects to be returned
+* totalPages - the total number of pages of records
+* currentPage - the page number of the array found in the data section of the JSON object
+* links - links to other pages
+    * self - URL of the current page
+    * first - URL of the first page
+    * previous - URL of the previous page, NULL if current page is the first page
+    * next - URL of the next page, NULL if current page is the last page
+    * last - URL of the last page
+
+
+**JSON:**   
+
+The following is an example of a JSON object that might be returned from a call to the [Get Fields](#get-fields) endpoint
+
+&emsp;&emsp;{       
+&emsp;&emsp;&emsp;"data": [       
+&emsp;&emsp;&emsp;&emsp;{       
+&emsp;&emsp;&emsp;&emsp;&emsp;"companyID": 339,       
+&emsp;&emsp;&emsp;&emsp;&emsp;"fieldName": "Henry",       
+&emsp;&emsp;&emsp;&emsp;&emsp;"fieldID": 1       
+&emsp;&emsp;&emsp;&emsp;},       
+&emsp;&emsp;&emsp;&emsp;{       
+&emsp;&emsp;&emsp;&emsp;&emsp;"companyID": 339,       
+&emsp;&emsp;&emsp;&emsp;&emsp;"fieldName": "Harefoot",       
+&emsp;&emsp;&emsp;&emsp;&emsp;"fieldID": 2       
+&emsp;&emsp;&emsp;&emsp;},       
+&emsp;&emsp;&emsp;&emsp;{       
+&emsp;&emsp;&emsp;&emsp;&emsp;"companyID": 339,       
+&emsp;&emsp;&emsp;&emsp;&emsp;"fieldName": "Lambeth ",       
+&emsp;&emsp;&emsp;&emsp;&emsp;"fieldID": 3       
+&emsp;&emsp;&emsp;&emsp;},       
+&emsp;&emsp;&emsp;&emsp;{       
+&emsp;&emsp;&emsp;&emsp;&emsp;"companyID": 339,       
+&emsp;&emsp;&emsp;&emsp;&emsp;"fieldName": "Weard",       
+&emsp;&emsp;&emsp;&emsp;&emsp;"fieldID": 5       
+&emsp;&emsp;&emsp;&emsp;},       
+&emsp;&emsp;&emsp;&emsp;{       
+&emsp;&emsp;&emsp;&emsp;&emsp;"companyID": 339,       
+&emsp;&emsp;&emsp;&emsp;&emsp;"fieldName": "Edgar",       
+&emsp;&emsp;&emsp;&emsp;&emsp;"fieldID": 7       
+&emsp;&emsp;&emsp;&emsp;}       
+&emsp;&emsp;&emsp;],       
+&emsp;&emsp;&emsp;"metadata": {       
+&emsp;&emsp;&emsp;&emsp;"totalRecords": 12,       
+&emsp;&emsp;&emsp;&emsp;"totalPages": 3,       
+&emsp;&emsp;&emsp;&emsp;"currentPage": 1,       
+&emsp;&emsp;&emsp;&emsp;"links": {       
+&emsp;&emsp;&emsp;&emsp;&emsp;"self": "https://wellopsdev.azurewebsites.net/Company/339/Field",       
+&emsp;&emsp;&emsp;&emsp;&emsp;"first": "https://wellopsdev.azurewebsites.net/Company/339/Field?page=1",       
+&emsp;&emsp;&emsp;&emsp;&emsp;"previous": null,       
+&emsp;&emsp;&emsp;&emsp;&emsp;"next": "https://wellopsdev.azurewebsites.net/Company/339/Field?page=2",       
+&emsp;&emsp;&emsp;&emsp;&emsp;"last": "https://wellopsdev.azurewebsites.net/Company/339/Field?page=3"       
+&emsp;&emsp;&emsp;&emsp;}       
+&emsp;&emsp;&emsp;}       
+&emsp;&emsp;}
+
+Where to go from here:
+
+* For a list of all endpoints, visit the [Overview](#overview) portion of this documentation.
+
+* For help getting started sending HTTP requests, read the [Quick Start](#quick-start) section.
+
+* [Return to Table of Contents](#table-of-contents)
+---
+
 ## JSON Data Object Structure 
 In the API, JSON is used to transmit data in the bodies of requests and responses. 
 
@@ -392,6 +464,92 @@ correcty described the well.
 <!--TODO: Example?-->
 
 **Fields/Attributes:**
+<!--
+* CompanyID
+* WellID
+* DataSheetID
+* ShowRemOnGraph
+* ActiveDailyProduction
+* allocTestID
+* ChemTypeID
+* ChemMethodID
+* WaterMethodID
+* DownTimeCodeID
+* LiftMethodID
+* Date_Stamp
+* Status
+* Remarks
+* ClosingGauge
+* ProducingZone
+* isTest
+* Hours_On
+* OILbbl
+* WATERbbl
+* GASmcf
+* CloseMeter
+* OpenMeter
+* GasSalesMCF
+* GasPurchaseMCF
+* OilSalesBBL
+* TotalOilStock
+* TP
+* CP
+* Choke
+* GasInj
+* OilYield
+* UpperPerf
+* LowerPerf
+* ApiGravity
+* CasingHeadGas
+* IntakePSI
+* EngineTemp
+* HZ
+* SteamInj
+* PsiAmbient
+* GasInDifferential
+* GasInPsiStatic
+* GasInTemperature
+* GasInGravity
+* GasOutDifferential
+* GasOutPsiStatic
+* GasOutTemperature
+* GasOutGravity
+* WaterInjected
+* WaterReturned
+* LineHeaterChoke
+* GasRateMcfD
+* SurfaceCP
+* IntermediateCP
+* SystemPSI
+* FuelGas
+* SITP
+* SPM
+* PumpEfficiency
+* StrokeLength
+* FlowlinePSI
+* TotalFluid
+* OilCut
+* TheoreticalOil
+* OptimalFluid
+* ChemicalsInjected
+* ChemInjPsi
+* CapillaryStringPSI
+* FlareGas
+* CombustorHoursOn
+* Choke3
+* MeteredOil
+* MeteredWater
+* MeteredGasProd
+* MeteredGasIn
+* MeteredGasOut
+* Amp
+* NGLProdGal
+* NGLSalesGal
+* IntakeTemp
+* Volts
+* PumpRuntimePercent
+* FluidLevel
+* LeaseUseGas -->
 
 **JSON:**            
 
@@ -628,8 +786,7 @@ startDate={startDate}&endDate={endDate}**
 **Responses**
 
 * 200: Ok
-    * Body: JSON array of well daily production objcts
- <!--   TODO-->
+    * Body: JSON array of well daily production objects
         * Each object in the array represents the daily production for a well
         * Read [Well Daily Production](#well-daily-production) for more information.
 
@@ -706,4 +863,4 @@ Returns all valid well status values.
 &emsp;[Return to Overview of Endpoints](#overview)
 
 ---
-Last updated: 11/03/2023
+Last updated: 04/16/2024
