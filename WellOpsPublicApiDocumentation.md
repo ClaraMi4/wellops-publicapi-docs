@@ -41,10 +41,12 @@ documentation.
 If you have not used the Well Ops public API before, you may need to generate an API key. If you have, you
 will need to retrieve it. 
 
+For now, please contact Mi4 Support at support@mi4.com to recieve an API key.
+
 <!--TODO: describe getting api key, log in, navigate to key, etc.-->
 
-If you already have an API key, you can copy it here. If you do not already have an API key, select 'Generate
-API Key' and one will be generated for you. Once your API key appears, you can copy it.
+<!--If you already have an API key, you can copy it here. If you do not already have an API key, select 'Generate
+API Key' and one will be generated for you. Once your API key appears, you can copy it.-->
 
 Find more information about API key generation and retrieval here: [Authentication](#authentication).
 
